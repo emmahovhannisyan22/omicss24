@@ -21,15 +21,30 @@ mkdir data # directory to store fastq files
 mkdir aln_res # directory to store alignment results
 ```
 
-## Copy required files to your directory
-### copy fastq files
+## Download and process required files for alignment
+### Download fastq files with SRA toolkit
 ```
 cd data
-cp -R /mnt/proj/omicss24/alignment/data/* .
+fastq-dump --gzip --skip-technical --split-files --clip SRR11881059
 ```
+### Perform fastqc on downloaded files
+```
+fastqc *
+```
+### Trim illumina adapters
+```
+mkdir trimmed
+cd trimmed
+cutadapt -a AGATCGGAAGAG -A AGATCGGAAGAG -o SRR11881059_1_trimmed.fastq.gz -p SRR11881059_2_trimmed.fastq.gz ../SRR11881059_1.fastq.gz ../SRR11881059_2.fastq.gz
+```
+### Run fastqc again
+```
+fastqc *
+```
+
 ### copy reference genome
 ```
-cd ../ref_genome
+cd ../../ref_genome
 cp /mnt/proj/omicss24/alignment/ref_genome/GCA_000146045.2_R64_genomic.fna .
 ```
 
@@ -44,8 +59,8 @@ cd ..
 ```
 cd aln_res
 bwa mem ../ref_genome/GCA_000146045.2_R64_genomic.fna -t 2 \
-../data/SRR11881059_1.fastq.gz \
-../data/SRR11881059_2.fastq.gz > aln.sam
+../data/trimmed/SRR11881059_1_trimmed.fastq.gz \
+../data/trimmed/SRR11881059_2_trimmed.fastq.gz > aln.sam
 ```
 
 ## Sort the sam file and convert it to bam
