@@ -6,8 +6,11 @@ This pipeline leverages the [Genome Analysis Toolkit (GATK)](https://gatk.broadi
 In your home directory, copy the following folder with all data and scripts:
 
 > mkdir variant_calling # creat direcroty
+>
 > cd variant_calling
+>
 > mkdir data
+>
 > cp -r /mnt/proj/omicss24/variant_calling/data/trimmed_fastq_small ./data
 
 
