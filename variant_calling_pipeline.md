@@ -5,6 +5,7 @@ This pipeline leverages the [Genome Analysis Toolkit (GATK)](https://gatk.broadi
 # Directory Setup
 In your home directory, copy the following folder with all data and scripts:
 
+> cd /mnt/user/"username"
 > mkdir variant_calling # creat direcroty
 >
 > cd variant_calling
