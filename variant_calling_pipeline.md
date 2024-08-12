@@ -118,4 +118,11 @@ Apply the following filters for INDELs:
 
 > /mnt/proj/omicss24/variant_calling/soft/gatk-4.6.0.0/gatk VariantFiltration -R /mnt/proj/omicss24/variant_calling/data/ref_genome/ecoli_rel606.fasta  -V data/vcf/indel_variants.vcf  -filter "QD < 2.0" --filter-name "QD2" -filter "QUAL < 30.0" --filter-name "QUAL30" -filter "SOR > 10.0" --filter-name "SOR10" -filter "FS > 100" --filter-name "FS100" -O data/vcf/filtered_indels.vcf
 
+
+Download the following files to your computer:
+  - data/vcf/filtered_indels.vcf
+  - data/bam_sam/aligned_reads.sort.markdup.bam
+  - data/bam_sam/aligned_reads.sort.markdup.bai
+  - /mnt/proj/omicss24/variant_calling/data/ref_genome/ecoli_rel606.fasta
+
 #### End of Pipeline ####
