@@ -12,6 +12,19 @@ In this project, we will replicate the main steps of the study, which include:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 - **PCA**
 
 input: /mnt/proj/vine/shared_files/SSFinalProj/data/plink/genotype
@@ -60,10 +73,10 @@ Filtering is done!
 
 - **Convert the quality check passed plink file to VCF using the tool plink**
 
--**Convert the VCF file to hapmap format to use in GAPIT using the tool TASSEL**
+- **Convert the VCF file to hapmap format to use in GAPIT using the tool TASSEL**
 
-Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row.
+- **Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row**
 
-Run GAPIT GWAS models (GLM, MLM,CMLM,SUPER,MLMM,FarmCPU,BLINK) using the GAPIT package in R.
+- **Run GAPIT GWAS models (GLM, MLM,CMLM,SUPER,MLMM,FarmCPU,BLINK) using the GAPIT package in R**
 
-Read more about the GAPIT tool and models here: https://zzlab.net/GAPIT/gapit_help_document.pdf
+- **Read more about the GAPIT tool and models here: https://zzlab.net/GAPIT/gapit_help_document.pdf**
