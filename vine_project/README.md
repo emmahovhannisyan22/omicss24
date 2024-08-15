@@ -75,8 +75,12 @@ Filtering is done!
 
 - **Convert the VCF file to hapmap format to use in GAPIT using the tool TASSEL**
 
-- **Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row**
+- Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row
 
 - **Run GAPIT GWAS models (GLM, MLM,CMLM,SUPER,MLMM,FarmCPU,BLINK) using the GAPIT package in R**
 
-- **Read more about the GAPIT tool and models here: https://zzlab.net/GAPIT/gapit_help_document.pdf**
+- Read more about the GAPIT tool and models here: https://zzlab.net/GAPIT/gapit_help_document.pdf
+
+- **Functioanl Annotation**
+  1. Find the genes that are located 0.9 mb upstream and downstream the significantly associated SNPs from the annotation gff file.
+  2. Do gene enrichement analysis using DAVID enrichment web tool: https://david.ncifcrf.gov/tools.jsp 
