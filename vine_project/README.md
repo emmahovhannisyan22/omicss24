@@ -68,13 +68,24 @@ Delete samples with missingness percentage over 2%.
 By default the --hwe option in plink only filters for controls.
 Therefore, we use two steps, first we use a stringent HWE threshold for controls (1e-6), followed by a less stringent threshold for the case data (1e-10).
 
-4.  Remove sampless with a heterozygosity rate deviating more than 3 sd from the mean.
+4.  Remove samples with a heterozygosity rate deviating more than 3 sd from the mean.
 
-Checks for heterozygosity are performed on a set of SNPs which are not highly correlated.
+4.1 Checks for heterozygosity are performed on a set of SNPs which are not highly correlated.
 Therefore, to generate a list of non-(highly)correlated SNPs,  prune the SNPs using the command --indep-pairwise.
 The parameters  50 5 0.2  stand respectively for: the window size, the number of SNPs to shift the window at each step, and the multiple correlation coefficient for a SNP being regressed on all other SNPs simultaneously.
+Note: the pruned dataset is only used for heterozygosity checks, not the further steps.
 
-Afterwards, you can  generates a list of samples that deviate more than 3 standard deviations from the heterozygosity rate mean using R and remove them.
+4.2 Computes observed and expected autosomal homozygous genotype counts for each sample (--het)
+
+4.3 Using R, get heterozygosity rates of each sample. Note: 
+
+\[
+\text{Heterozygosity rate} = \frac{\text{O(HET)}}{\text{N(NM)}} = \frac{\text{N(NM)} - \text{O(HOM)}}{\text{N(NM)}}
+\]
+
+4.4 Using R, calculate mean and standard deviation of hetrozygosity rate. Find and exclude samples which deviate more than 3 sds from the mean.
+​
+ 
 
 Filtering is done!
 
@@ -96,13 +107,13 @@ output: pca plots
 
 - **Convert the VCF file to hapmap format to use in GAPIT using the tool TASSEL**
 
-- **Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row**
+- Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row
 
 ## GWAS analysis
 
 - **Run GAPIT GWAS models (GLM, MLM,CMLM,SUPER,MLMM,FarmCPU,BLINK) using the GAPIT package in R**
 
-- **Read more about the GAPIT tool and models here: https://zzlab.net/GAPIT/gapit_help_document.pdf**
+- Read more about the GAPIT tool and models here: https://zzlab.net/GAPIT/gapit_help_document.pdf
 
 ## Functional Annotation
 
