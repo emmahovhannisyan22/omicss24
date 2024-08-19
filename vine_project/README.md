@@ -37,8 +37,8 @@ During this project, you will work in your own directory. Let's set it up!
 > mkdir data/metadata \
 > mkdir data # directory for data \
 > cp -r /mnt/proj/omicss24/vine_project/data/plink/ data/ # copy input files \
-> cp /mnt/proj/omicss24/vine_project/data/metadata/viticola_pheno.txt data/metadata/
-> cp /mnt/proj/omicss24/vine_project/data/metadata/necator_pheno.txt data/metadata
+> cp /mnt/proj/omicss24/vine_project/data/metadata/viticola_pheno.txt data/metadata/ \
+> cp /mnt/proj/omicss24/vine_project/data/metadata/necator_pheno.txt data/metadata \
 > cp /mnt/proj/omicss24/vine_project/data/metadata/subspecies_pheno.txt data/metadata
 
 Now you are ready to go! 
