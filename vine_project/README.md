@@ -107,7 +107,7 @@ output: pca plots
 1) Create vine_project/soft folder and
 2) Download the ADMIXTURE software from here (https://dalexander.github.io/admixture/download.html)
 3) Unzip the .tar.gz file, In this folder you can find also the Manual
-4) Run ADMIXTURE for k= 1-10, you can write a for loop for this
+4) Run ADMIXTURE for k= 1-10, you can write a for loop for this. The input file should be the filtered, pruned plink file (data/plink/genotype_maf005_hwe.bed)
 5) Enable the cross-validation calculation with the -cv option
 6) Save the log files in the scr/log directory by adding  " | tee ./scr/log/log${K}.out "
 7) Explore the output files, you can read about them in the manual.
@@ -124,17 +124,6 @@ output: pca plots
 
 - Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row
 
-## ADMIXTURE
-mkdir /mnt/user/username/vine_project/result/admixture
-mkdir /mnt/user/username/vine_project/soft
-cd /mnt/user/username/vine_project/soft
-# Download ADMIXTURE
-wget https://dalexander.github.io/admixture/binaries/admixture_linux-1.3.0.tar.gz
-tar –xzf admixture_linux-1.3.0.tar.gz
-cd /mnt/user/username/vine_project/scr
-
-for K in 1 2 3 4 5 6 7 8 9 10 11 12; do /mnt/user/username/vine_project/soft/admixture_linux-1.3.0/admixture --cv /mnt/user/username/vine_project/data/plink/genotype_maf005_hwe.bed $K | tee /mnt/user/username/vine_project/scr/log/log${K}.out; done
-grep "CV" log/log*.out | awk '{print $3,$4}' | sed -e 's/(//;s/)//;s/://;s/K=//'> ../result/admixture/cv_errors.tsv
 
 
 ## GWAS analysis
