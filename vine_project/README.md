@@ -33,6 +33,7 @@ During this project, you will work in your own directory. Let's set it up!
 > mkdir vine_project \
 > cd vine_project/ \
 > mkdir scr # directory for scripts \
+> mkdir scr/log #directory for the log files 
 > mkdir result # directory for the results \
 > mkdir data/metadata \
 > mkdir data # directory for data \
@@ -108,6 +109,19 @@ output: pca plots
 - **Convert the VCF file to hapmap format to use in GAPIT using the tool TASSEL**
 
 - Delete SNPs on unknown chromsomes (chr0) and the depricated 606th row
+
+## ADMIXTURE
+mkdir /mnt/user/username/vine_project/result/admixture
+mkdir /mnt/user/username/vine_project/soft
+cd /mnt/user/username/vine_project/soft
+# Download ADMIXTURE
+wget https://dalexander.github.io/admixture/binaries/admixture_linux-1.3.0.tar.gz
+tar –xzf admixture_linux-1.3.0.tar.gz
+cd /mnt/user/username/vine_project/scr
+
+for K in 1 2 3 4 5 6 7 8 9 10 11 12; do /mnt/user/username/vine_project/soft/admixture_linux-1.3.0/admixture --cv /mnt/user/username/vine_project/data/plink/genotype_maf005_hwe.bed $K | tee /mnt/user/username/vine_project/scr/log/log${K}.out; done
+grep "CV" log/log*.out | awk '{print $3,$4}' | sed -e 's/(//;s/)//;s/://;s/K=//'> ../result/admixture/cv_errors.tsv
+
 
 ## GWAS analysis
 
