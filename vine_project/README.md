@@ -37,9 +37,9 @@ During this project, you will work in your own directory. Let's set it up!
 > mkdir data/metadata \
 > mkdir data # directory for data \
 > cp -r /mnt/proj/omicss24/vine_project/data/plink/ data/ # copy input files \
-> cp /mnt/proj/omicss24/vine_project/data/metadata/viticola_pheno.txt data/metadata/ \
-> cp /mnt/proj/omicss24/vine_project/data/metadata/necator_pheno.txt data/metadata \
-> cp /mnt/proj/omicss24/vine_project/data/metadata/subspecies_pheno.txt data/metadata
+> cp /mnt/proj/vine/shared_files/SSFinalProj/data/metadata/viticola_pheno.txt data/metadata/
+> cp /mnt/proj/vine/shared_files/SSFinalProj/data/metadata/necator_pheno.txt data/metadata
+> cp /mnt/proj/vine/shared_files/SSFinalProj/data/metadata/subspecies_pheno.txt data/metadata
 
 Now you are ready to go! 
 
@@ -99,6 +99,20 @@ output: pca plots
 1.Perform  PCA analysis in the commad line using the tool plink, get eigenvec and eigenvalue files
 
 2.Visualize the PCA results using R, colour the samples by subspecies
+
+
+## ADMIXTURE
+
+1) Create vine_project/soft folder and
+2) Download the ADMIXTURE software from here (https://dalexander.github.io/admixture/download.html)
+3) Unzip the .tar.gz file, In this folder you can find also the Manual
+4) Run ADMIXTURE for k= 1-10, you can write a for loop for this
+5) Enable the cross-validation calculation with the -cv option
+6) Save the log files in the scr/log directory by adding  " | tee ./scr/log/log${K}.out "
+7) Explore the output files, you can read about them in the manual.
+8) Grep the CV errors from the log files, save them in a separate file and plot them using R
+9) For plotting the ADMIXTURE results you can use this code (https://github.com/speciationgenomics/scripts/blob/master/plotADMIXTURE.r)
+
 
 
 ## Preparing data format for GWAS 
