@@ -80,9 +80,9 @@ Note: the pruned dataset is only used for heterozygosity checks, not the further
 
 4.3 Using R, get heterozygosity rates of each sample. Note: 
 
-\[
+$$
 \text{Heterozygosity rate} = \frac{\text{O(HET)}}{\text{N(NM)}} = \frac{\text{N(NM)} - \text{O(HOM)}}{\text{N(NM)}}
-\]
+$$
 
 4.4 Using R, calculate mean and standard deviation of hetrozygosity rate. Find and exclude samples which deviate more than 3 sds from the mean.
 ​
